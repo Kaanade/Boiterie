@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;cxx;c;def</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Debug">
+      <UniqueIdentifier>{b75e769e-1df5-4a77-adec-a5196aec4076}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Release">
+      <UniqueIdentifier>{9b9de6e9-5155-4d54-aa4f-34ebb6ad5704}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="boiterie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_boiterie.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_boiterie.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_boiterie.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_DialogIntro.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_DialogIntro.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="FenetrePrincipale.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_FenetrePrincipale.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_FenetrePrincipale.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_kinect_skeleton.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyKinect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_MyKinect.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_MyKinect.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="mykinect2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_mykinect2.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_mykinect2.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="WebcamGraphicsScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_WebcamGraphicsScene.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_WebcamGraphicsScene.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_WebcamGraphicsView.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_WebcamGraphicsView.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_WidgetSkeleton.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_WidgetSkeleton.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetSkeleton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetAnalyse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Pas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Phase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomProgressBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MonLayoutVertical.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="boiterie.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="boiterie.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="boiterie.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FenetrePrincipale.h">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="kinect_skeleton.qrc">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="DialogIntro.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="mykinect2.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="MyKinect.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="WebcamGraphicsScene.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="WebcamGraphicsView.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="WidgetSkeleton.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GeneratedFiles\ui_boiterie.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogHelp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="skeletondata2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WidgetAnalyse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Phase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomProgressBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MonLayoutVertical.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aide.html">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\analyse.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\axe.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\cnr-pending.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\courbes.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\crayon.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\ecranaccueil.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\exit.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\hommev.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\kinect.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Kinect2.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\logo100.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\logo800blanc sans nom.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\papiercrayon.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\run.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\temps.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\traitement.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\vitruve.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Boiterie.rc" />
+  </ItemGroup>
+</Project>

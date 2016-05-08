@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/Boitement">
+        <file>Resources/aide.html</file>
+        <file>Resources/analyse.jpg</file>
+        <file>Resources/axe.jpg</file>
+        <file>Resources/cnr-pending.png</file>
+        <file>Resources/courbes.jpg</file>
+        <file>Resources/crayon.jpg</file>
+        <file>Resources/ecranaccueil.png</file>
+        <file>Resources/exit.png</file>
+        <file>Resources/hommev.jpg</file>
+        <file>Resources/kinect.jpg</file>
+        <file>Resources/Kinect2.jpg</file>
+        <file>Resources/logo100.jpg</file>
+        <file>Resources/logo800blanc sans nom.jpg</file>
+        <file>Resources/papiercrayon.jpg</file>
+        <file>Resources/run.jpg</file>
+        <file>Resources/temps.jpg</file>
+        <file>Resources/traitement.jpg</file>
+        <file>Resources/vitruve.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>Comment utiliser ce programme       </title>
+<style type="text/css">
+<!--
+h1	{text-align:center;
+	font-family:Arial, Helvetica, Sans-Serif;
+	}
+
+p	{text-indent:20px;
+	}
+-->
+</style>
+</head>
+<body bgcolor = "#ffffcc" text = "#000000">
+<h1><center>Guide d'utilisation</center></h1>
+<ol><ol>
+ <p> <B>Présentation : </B> <BR>
+Ce document explique les démarches à suivre ainsi que les réglages pour acquérir les données et les traiter pour obtenir un résultat sur le boitement. Le but de ce programme est de capter les mouvements du patient et d'en détecter son boitement lors de son déplacement.</p>
+
+<Font COLOR="#F00000"> <p> <U> <B> Avant toute utilisation n'oubliez pas d'alimenter et de relier le câble USB du capteur Kinect. </B> </U> </p> </Font>
+
+<li> <p> <B> Installation : </B> <BR>
+Ce produit a été conçu pour fonctionner en positionnant le capteur Kinect sur le rebord d'un support placé a environ 90 centimètre du sol, ainsi q'un espace de 4 mètres libre dans le champ de profondeur du capteur Kinect. C'est dans cet espace que le patient se déplacera de telle manière à ce que l'on obtienne un résultat de détection du boitement.</p>
+
+<li> <p> <B> Réglages : </B> <BR>
+Le patient se déplacera en partant au fond du champ du capteur Kinect vers celui-ci. Il faut déterminer les limites du champ de vision du capteur: déterminer la distance maximale de détection optimale du corps du patient ainsi que la distance minimale de détection optimale du patient. A noter que les distances théoriques minimales et maximales du capteur sont respectivement de 1 mètre 20 au plus près et 3 mètres 50 au plus loin du capteur. </p>
+
+<li> <p> <B> Démarche à suivre : </B> <BR>
+Le patient doit se déplacer en partant du champ de vision maximal du capteur Kinect jusqu'au champ de vision minimal. Le patient ne doit pas reculer lors de son déplacement et être face au capteur Kinect. </p>
+
+<li> <p> <B> Détermination du Boitement : </B> <BR>
+Pour déterminer le boitement, lancez le fichier "traitement des données" et exportez le chemin de données obtenu lors de l'enregistrement du fichier en (1). Compilez le fichier. Après traitement, le compilateur affichera s'il y a boitement ou non.</p>
+
+<li> <p> <B> Description de l'interface : </B><BR>
+Le programme est constitué de telle manière:</li>
+<p>Dans la partie latérale, à droite, il y a trois icône qui gèrent la fenêtre centrale.</p>
+<ol><ol><li> <p>La première icône, représentée par une Kinect permet de visualiser les différents flux du capteur Kinect .</p></li>
+<p><li> La deuxième icône, représentée par un graphique permet de rejouer la trajectoire d'une acquisition et de visualiser les courbes de vitesses des points.</p>
+<p> <li> Le troisième icône, représentée par un crayon affiche les données de vitesses, d'angles et de moyenne de l'acquisition, c'est là qu'est également affiché le diagnostic du système.</p>
+</li></ol></ol>
+<p> La partie supérieure, barre d'outils, correspond aux boutons et options du logiciel.<BR>
+De gauche à droite: </p>
+<ol><ol><li><p><Font COLOR="#3366FF"><U>ouvrir :</U> </Font> permet d'ouvrir une acquisition précedemment enregistrée.</p>
+</li> 
+<p><li><Font COLOR="#3366FF"><U>enregistrer :</U> </Font> permet d'enregistrer une acquisition que l'on vient d'acquérir.</p></li>
+<li><p><Font COLOR="#3366FF"><U>run :</U></Font> permet de déclencher une acquisition.</p></li>
+<p><li><Font COLOR="#3366FF"><U>delayspinvalue :</U></Font> Choix du temps d'acquisition, valeur réglable entre 0 et 99 secondes.<BR>
+<p><li><Font COLOR="#3366FF"><U>choix squelette:</U></Font> Ouvre une fenêtre permettant de choix les points de squelette à afficher mais également le type de courbes à observer et quels points observer.</p>
+<li><p><Font COLOR="#3366FF"><U>axes :</U></Font>Sert à modifier la visualisation des trajectoire des points suivant l'axe XY, YZ et XZ.<p></li>
+<p><li><Font COLOR="#3366FF"><U>analyse :</U></Font> Analyse l'acquisition effectuée ou chargée et permet la visualisation dans un autre widget.</p>
+
+
+</ol></ol></p> 
+
+
+</body>
+</html>
