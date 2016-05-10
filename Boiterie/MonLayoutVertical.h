@@ -13,6 +13,7 @@ class MonLayoutVertical : public QVBoxLayout{
 public:
 	void MonLayoutVertical::addlabel(QString labelcontent);
 	void MonLayoutVertical::addlabel2(QString labelcontent);
+	void MonLayoutVertical::addlabel3(QString labelcontent);
 	void MonLayoutVertical::addvbox();
 	void MonLayoutVertical::addgroupbox();
 	void MonLayoutVertical::addprogressbar(double values[]);
@@ -24,6 +25,7 @@ public:
 private:
 	QLabel *label = new QLabel();
 	QLabel *label2 = new QLabel();
+	QLabel *label3 = new QLabel();
 	QVBoxLayout *vbox = new QVBoxLayout;
 	QGroupBox *groupBox1 = new QGroupBox("Longeur du pas");
 	QProgressBar *progress = new QProgressBar();

@@ -253,10 +253,11 @@ QWidget * FenetrePrincipale::UpdateWidgetAnalyse( vector<Pas> vec_pas, WidgetAna
 		double values[4] = {
 			vec_pas.at(i).percent_A, vec_pas.at(i).percent_B, vec_pas.at(i).percent_C, vec_pas.at(i).percent_D
 		};
-
+		
 		MonLayoutVertical * vLayout = new MonLayoutVertical();
-		vLayout->addlabel("Premiere information");
-		vLayout->addlabel2("Deuxieme information");
+		vLayout->addlabel(QString::fromStdString(vec_pas.at(i).first));
+		vLayout->addlabel2("Demi Pas Droit :" + QString::number(vec_pas.at(i).demiPasD));
+		vLayout->addlabel3("Demi Pas Gauche :" + QString::number(vec_pas.at(i).demiPasG));
 		vLayout->addvbox();
 		vLayout->addgroupbox();
 		vLayout->addprogressbar(values);
@@ -276,6 +277,8 @@ QWidget * FenetrePrincipale::UpdateWidgetAnalyse( vector<Pas> vec_pas, WidgetAna
 	new_widget->setLayout(lay);
 	return new_widget;
 }
+
+
 //QWidget * FenetrePrincipale::BuildWidgetKinectNews(){ //ajout des widgets à le fenetre news
 //
 //	QWidget fenetre;
@@ -509,8 +512,9 @@ void FenetrePrincipale::slot_loaddata()
 
     QString filename = QFileDialog::getOpenFileName(this, tr("Open data file"), QString(), tr("Skeleton data (*.yml)"));
     if(QFile(filename).exists()) {
-        if (skeletondata == NULL) skeletondata = new SkeletonData();
-		
+        //if (skeletondata == NULL) skeletondata = new SkeletonData();
+		skeletondata = new SkeletonData();
+		widgetAnalyse->reset();
         skeletondata->loaddata(filename);
         widgetskeleton->setDataSkeleton(skeletondata->getSkeletonData(), skeletondata->getSkeletonTimes());
 		widgetAnalyse->setDataSkeleton(skeletondata->getSkeletonData(), skeletondata->getSkeletonTimes());

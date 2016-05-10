@@ -13,6 +13,12 @@ void MonLayoutVertical::addlabel2(QString labelcontent)
 	vbox->addWidget(label2);
 }
 
+void MonLayoutVertical::addlabel3(QString labelcontent)
+{
+	label3->setText(labelcontent);
+	vbox->addWidget(label3);
+}
+
 void MonLayoutVertical::addvbox()
 {
 	groupBox1->setLayout(vbox);

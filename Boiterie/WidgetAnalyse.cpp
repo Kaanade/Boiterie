@@ -54,13 +54,71 @@ void WidgetAnalyse::longueurPas()
 void WidgetAnalyse::demiPas()
 {
 	bool dansPas = false, dansDeb = false;
+	bool dansHaut = false, dansBas = false;
 	int nbDemiPas = 0,pos_max,pos_min;
 	double min, max, temps,maxTotal;
 	string pied;
 	vector<pair<double,int>> vec_norme_pos;
 	Pas pas;
+	double moyenne,seuil_haut,seuil_bas;
+
+	
+	moyenne = CalculMoyenne(vec_norme);
+	seuil_haut = moyenne + moyenne *0.1;
+	seuil_bas = moyenne - moyenne *0.1;
+	
+	int a = 0;
 
 	for (uint i = 0; i < vec_norme.size(); i++)
+	{
+		if (dansHaut == true)
+		{
+			vec_norme_pos.push_back(make_pair(vec_norme.at(i), i));
+		}
+			
+
+		if (vec_norme.at(i) > seuil_haut && dansHaut == false)
+		{
+			dansHaut = true;
+			dansBas = false;
+		}
+		else if (vec_norme.at(i) < seuil_bas && dansHaut == true)
+		{
+			nbDemiPas++;
+			if (dansHaut == true)
+			{
+				max = max_element2(vec_norme_pos).first;
+				pos_max = max_element2(vec_norme_pos).second;
+				pied = quelPied(pos_max);
+				if (pied == "gauche")
+				{
+					pas.demiPasG = max;
+					pas.tempsG = temps;
+					if (pas.demiPasD == 0)
+						pas.first = "gauche";
+				}
+				else
+				{
+					pas.demiPasD = max;
+					pas.tempsD = temps;
+					if (pas.demiPasG == 0)
+						pas.first = "droit";
+				}
+			}
+			vec_norme_pos.clear();
+			if (nbDemiPas == 2)
+			{
+				pas.distTot = pas.demiPasD + pas.demiPasG;
+				vec_pas.push_back(pas);
+				Pas * pas = new Pas();
+				nbDemiPas = 0;
+			}
+			dansHaut = false;
+			dansBas = true;
+		}
+	}
+
+	/*for (uint i = 0; i < vec_norme.size(); i++)
 	{
 		double test = vec_norme.at(i);
 		double test2 = vec_times.at(i);
@@ -121,11 +179,11 @@ void WidgetAnalyse::demiPas()
 			vec_norme_pos.push_back(make_pair(vec_norme.at(i), i));
 		}
 		
-		int a = 0;
+		a = 0;
 		
-	}
+	}*/
 
-	int a = 0;
+	a = 0;
 
 }
 
@@ -156,7 +214,7 @@ void WidgetAnalyse::phases()
 	int nb_pas = 0;
 	int pass_seuil = 0;
 	//Quand on rentre dans une phase A ou C on utilise dansSeuil, pour éviter les passages de seuils non désiré on utilise dansSeuil2
-	bool dansSeuil = false, dansSeuil2 = false, commence = false;
+	bool dansSeuil = false, dansSeuil2 = false, commence = false, commence2 =false;
 	double test;
 	Pas & pas = vec_pas.at(nb_pas);
 	Phase new_phase;
@@ -168,20 +226,30 @@ void WidgetAnalyse::phases()
 
 	for (uint i = 1; i < vec_smooth.size(); i++)
 	{
-		test = vec_smooth.at(i);
+		double test = vec_smooth.at(i);
+		int test2 = vec_times.at(i);
+		//&& pass_seuil % 2 == 0
+		if (vec_smooth.at(i) > 0.8 && commence2 == false)
+		{
+			commence2 = true;
+		}
+			
+		if (i == 88)
+			int a = 0;
+
 		old_phase = vec_phases.at(i - 1);
-		if ((vec_smooth.at(i) < pas.distTot) && (commence == true) && (dansSeuil2 == false))
+		if ( vec_smooth.at(i) < pas.distTot && commence == true && dansSeuil2 == false )
 		{
 			pass_seuil++;
 			dansSeuil2 = true;
 		}
-		else if ((vec_smooth.at(i) > pas.distTot) && (dansSeuil2 == true))
+		else if ( vec_smooth.at(i) > pas.distTot && dansSeuil2 == true)
 		{
 			dansSeuil2 = false;
 		}
 
 		//Si la dérivée est en dessous de la longueur du pas et qu'on a pas encore commencé
-		if ((vec_smooth.at(i) < pas.distTot) && (old_phase.phase == 'z') && (dansSeuil == false) && (vec_norme.at(i) > vec_norme.at(i - 1)))
+		if ( vec_smooth.at(i) < vec_norme.at(i) && old_phase.phase == 'z' && dansSeuil == false && vec_norme.at(i) > vec_norme.at(i - 1)  && vec_smooth.at(i) < vec_smooth.at(i-1) && commence2 == true)
 		{
 			dansSeuil = true;
 			new_phase.nb_pas = nb_pas;
@@ -190,7 +258,7 @@ void WidgetAnalyse::phases()
 			vec_phases.push_back(new_phase);
 		}
 		// On rentre dans la phase C
-		else if ((vec_smooth.at(i) < pas.distTot) && (old_phase.phase == 'b') && (dansSeuil == false) && (vec_norme.at(i) > vec_norme.at(i - 1)) && (pass_seuil % 2 == 0))
+		else if (vec_smooth.at(i) < vec_norme.at(i) && old_phase.phase == 'b' && dansSeuil == false && vec_norme.at(i) > vec_norme.at(i - 1))
 		{
 			dansSeuil = true;
 			new_phase.nb_pas = nb_pas;
@@ -199,7 +267,7 @@ void WidgetAnalyse::phases()
 			vec_phases.push_back(new_phase);
 		}
 		// On rentre dans la phase A d'un nouveau pas
-		else if ((vec_smooth.at(i) < pas.distTot) && (old_phase.phase == 'd') && (dansSeuil == false) && (vec_norme.at(i) > vec_norme.at(i - 1)) && (pass_seuil % 2 == 0))
+		else if (vec_smooth.at(i) < vec_norme.at(i) && old_phase.phase == 'd' && dansSeuil == false)
 		{
 			nb_pas++;
 			new_phase.nb_pas = nb_pas;
@@ -210,10 +278,10 @@ void WidgetAnalyse::phases()
 				break;
 			pas = vec_pas.at(nb_pas);
 			dansSeuil = true;
-			
+
 		}
 		// On rentre dans la phase B
-		else if ((vec_smooth.at(i) > pas.distTot) && (old_phase.phase == 'a') && (dansSeuil == true))
+		else if (vec_smooth.at(i) > vec_norme.at(i) && old_phase.phase == 'a' && dansSeuil == true)
 		{
 			// On test si on a commencé le premier pas
 			if (commence == false)
@@ -225,7 +293,7 @@ void WidgetAnalyse::phases()
 			vec_phases.push_back(new_phase);
 		}
 		// On rentre dans la phase D
-		else if ((vec_smooth.at(i) > pas.distTot) && (old_phase.phase == 'c') && (dansSeuil == true))
+		else if (vec_smooth.at(i) > vec_norme.at(i) && old_phase.phase == 'c' && dansSeuil == true)
 		{
 			dansSeuil = false;
 			new_phase.nb_pas = nb_pas;
@@ -246,8 +314,8 @@ void WidgetAnalyse::phases()
 	}
 
 
-	 nb_pas = 0;
-	 pas = vec_pas.at(nb_pas);
+	nb_pas = 0;
+	pas = vec_pas.at(nb_pas);
 
 	for (uint i = 1; i < vec_phases.size(); i++)
 	{
@@ -299,7 +367,6 @@ void WidgetAnalyse::phases()
 	}
 
 	int a = 0;
-
 
 }
 
@@ -390,9 +457,35 @@ string WidgetAnalyse::quelPied(int pos)
 
 }
 
+double WidgetAnalyse::CalculMoyenne(vector<double> vec_norme)
+{
+	double moyenne, somme;
+
+	for (uint i = 0; i < vec_norme.size(); i++)
+	{
+		somme += vec_norme.at(i);
+	}
+
+	moyenne = somme / vec_norme.size();
+
+	return moyenne;
+}
 
 vector<Pas> WidgetAnalyse::getVecPas()
 {
 	return this->vec_pas;
+}
+
+void WidgetAnalyse::reset()
+{
+	vec_pas.clear();
+	vec_norme.clear();
+	vec_derivee.clear();
+	vec_smooth.clear();
+	vec_norme_pos.clear();
+	vec_skeletons.clear();
+	vec_skeletons2.clear();
+	vec_times.clear();
+	vec_phases.clear();
 }
 

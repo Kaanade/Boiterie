@@ -29,11 +29,13 @@ class WidgetAnalyse : public QWidget{
 		pair<double, int> WidgetAnalyse::min_element(vector<pair<double, int>> vec_norme_pos);
 		pair<double, int> WidgetAnalyse::max_element2(vector<pair<double, int>> vec_norme_pos);
 		string WidgetAnalyse::quelPied(int pos);
+		double CalculMoyenne(vector<double>);
 		void WidgetAnalyse::derivee();
 		void WidgetAnalyse::phases();
 		void WidgetAnalyse::calculCycles();
 		vector<Pas> WidgetAnalyse::getVecPas();
 		double temp;
+		void WidgetAnalyse::reset();
 		
 
 	private:

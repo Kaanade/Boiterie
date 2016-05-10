@@ -16,8 +16,8 @@ Pas::~Pas()
 void Pas::CalculCycle()
 {
 	// Cycle Ideal
-	this->doubleIdeal = this->dureeCycle * 0.1;
-	this->phaseIdeal = this->dureeCycle * 0.4;
+	this->doubleIdeal = (finDeriv - debutDeriv) * 0.1;
+	this->phaseIdeal = (finDeriv - debutDeriv) * 0.4;
 
 	// Cycle Réel
 	this->percent_A = 100 * time_a / (finDeriv - debutDeriv);
