@@ -237,21 +237,21 @@ QWidget * FenetrePrincipale::BuildWidgetAnalyse() {
 	return widget;
 }
 
-QWidget * FenetrePrincipale::UpdateWidgetAnalyse( vector<Pas> vec_pas, WidgetAnalyse * widgetAnalyse) {
+QWidget * FenetrePrincipale::UpdateWidgetAnalyse( vector<Pas>  vec_pas, WidgetAnalyse * widgetAnalyse) {
 	QHBoxLayout * lay = new QHBoxLayout;
 	QWidget fenetre;
 	QVBoxLayout * vlay_widget = new QVBoxLayout;
 
 	vlay_widget->addWidget(widgetAnalyse);
 	
-	int nbPas = 1;
+	int nbPas = vec_pas.size();
 	int i;
 	
 	//Création des instances MaGroupBox
 	for (i = 0; i < nbPas; i++){
 
 		double values[4] = {
-			vec_pas.at(i).percent_A, vec_pas.at(i).percent_B, vec_pas.at(i).percent_C, vec_pas.at(i).percent_D
+			round(vec_pas.at(i).percent_A), round(vec_pas.at(i).percent_B), round(vec_pas.at(i).percent_C), round(vec_pas.at(i).percent_D)
 		};
 		
 		MonLayoutVertical * vLayout = new MonLayoutVertical();
@@ -675,4 +675,6 @@ void FenetrePrincipale::slot_analyse()
 	widgetAnalyse->derivee();
 	widgetAnalyse->phases();
 	widgetAnalyse->calculCycles();
+
+	int a = 0;
 }

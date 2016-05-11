@@ -1,5 +1,14 @@
 #include "CustomProgressBar.h"
 
+CustomProgressiveBar::CustomProgressiveBar()
+{
+	progress1 = new QProgressBar();
+	progress2 = new QProgressBar();
+	progress3 = new QProgressBar();
+	progress4 = new QProgressBar();
+}
+
+
 void CustomProgressiveBar::addProgressBar1(int value1)
 {
 	this->addWidget(progress1);

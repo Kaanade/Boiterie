@@ -24,4 +24,6 @@ void Pas::CalculCycle()
 	this->percent_B = 100 * time_b / (finDeriv - debutDeriv);
 	this->percent_C = 100 * time_c / (finDeriv - debutDeriv);
 	this->percent_D = 100 * time_d / (finDeriv - debutDeriv);
+
+	int a = 0;
 }

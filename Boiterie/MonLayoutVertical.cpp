@@ -1,5 +1,9 @@
 #include "MonLayoutVertical.h"
 
+MonLayoutVertical::MonLayoutVertical()
+{
+	ProgressTotal = new CustomProgressiveBar();
+}
 
 void MonLayoutVertical::addlabel(QString labelcontent)
 {

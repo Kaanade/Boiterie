@@ -233,17 +233,14 @@ void WidgetAnalyse::phases()
 		{
 			commence2 = true;
 		}
-			
-		if (i == 88)
-			int a = 0;
 
 		old_phase = vec_phases.at(i - 1);
-		if ( vec_smooth.at(i) < pas.distTot && commence == true && dansSeuil2 == false )
+		if (vec_smooth.at(i) < vec_pas.at(nb_pas).distTot && commence == true && dansSeuil2 == false)
 		{
 			pass_seuil++;
 			dansSeuil2 = true;
 		}
-		else if ( vec_smooth.at(i) > pas.distTot && dansSeuil2 == true)
+		else if (vec_smooth.at(i) > vec_pas.at(nb_pas).distTot && dansSeuil2 == true)
 		{
 			dansSeuil2 = false;
 		}
@@ -276,7 +273,7 @@ void WidgetAnalyse::phases()
 			vec_phases.push_back(new_phase);
 			if (nb_pas >= vec_pas.size())
 				break;
-			pas = vec_pas.at(nb_pas);
+			//pas = vec_pas.at(nb_pas);
 			dansSeuil = true;
 
 		}
@@ -315,11 +312,11 @@ void WidgetAnalyse::phases()
 
 
 	nb_pas = 0;
-	pas = vec_pas.at(nb_pas);
+	//pas = vec_pas.at(nb_pas);
 
 	for (uint i = 1; i < vec_phases.size(); i++)
 	{
-		double begin;
+		
 		new_phase = vec_phases.at(i);
 		old_phase = vec_phases.at(i - 1);
 
@@ -328,39 +325,35 @@ void WidgetAnalyse::phases()
 			//On reflechit par rapport à l'ancienne phase
 			if (old_phase.phase == 'z')
 			{
-				begin = new_phase.time;
-				pas.debutDeriv = new_phase.time;
-				pas.begin_a = new_phase.time;
+				vec_pas.at(nb_pas).debutDeriv = new_phase.time;
+				vec_pas.at(nb_pas).begin_a = new_phase.time;
 			}
 			else if (old_phase.phase == 'a')
 			{
-				begin = new_phase.time;
-				pas.time_a = new_phase.time - pas.begin_a;
-				pas.begin_b = new_phase.time;
+				vec_pas.at(nb_pas).time_a = new_phase.time - vec_pas.at(nb_pas).begin_a;
+				vec_pas.at(nb_pas).begin_b = new_phase.time;
 			}
 			else if (old_phase.phase == 'b')
 			{
-				begin = new_phase.time;
-				pas.time_b = new_phase.time - pas.begin_b;
-				pas.begin_c = new_phase.time;
+				vec_pas.at(nb_pas).time_b = new_phase.time - vec_pas.at(nb_pas).begin_b;
+				vec_pas.at(nb_pas).begin_c = new_phase.time;
 			}
 			else if (old_phase.phase == 'c')
 			{
-				begin = new_phase.time;
-				pas.time_c = new_phase.time - pas.begin_c;
-				pas.begin_d = new_phase.time;
+				vec_pas.at(nb_pas).time_c = new_phase.time - vec_pas.at(nb_pas).begin_c;
+				vec_pas.at(nb_pas).begin_d = new_phase.time;
 
 			}
 			else if (old_phase.phase == 'd')
 			{
-				begin = new_phase.time;
-				pas.time_d = new_phase.time - pas.begin_d;
-				pas.finDeriv = new_phase.time;
+				vec_pas.at(nb_pas).time_d = new_phase.time - vec_pas.at(nb_pas).begin_d;
+				vec_pas.at(nb_pas).finDeriv = new_phase.time;
 				nb_pas++;
 				if (nb_pas >= vec_pas.size())
 					break;
-				pas = vec_pas.at(nb_pas);
-				pas.begin_a = new_phase.time;
+				//pas = vec_pas.at(nb_pas);
+				vec_pas.at(nb_pas).begin_a = new_phase.time;
+				vec_pas.at(nb_pas).debutDeriv = new_phase.time;
 			}
 
 		}
@@ -373,13 +366,9 @@ void WidgetAnalyse::phases()
 
 void WidgetAnalyse::calculCycles()
 {
-
-	Pas & pas = vec_pas.at(0);
-	pas.CalculCycle();
-	for (uint i = 1; i < vec_pas.size(); i++)
+	for (uint i = 0; i < vec_pas.size(); i++)
 	{
-		pas = vec_pas.at(i);
-		pas.CalculCycle();
+		vec_pas.at(i).CalculCycle();
 	}
 
 	int a = 0;
@@ -473,7 +462,7 @@ double WidgetAnalyse::CalculMoyenne(vector<double> vec_norme)
 
 vector<Pas> WidgetAnalyse::getVecPas()
 {
-	return this->vec_pas;
+	return vec_pas;
 }
 
 void WidgetAnalyse::reset()

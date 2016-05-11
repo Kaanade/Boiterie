@@ -11,6 +11,7 @@ using namespace std;
 class CustomProgressiveBar : public QHBoxLayout
 {
 public:
+	CustomProgressiveBar::CustomProgressiveBar();
 	void CustomProgressiveBar::addProgressBar1(int value1);
 	void CustomProgressiveBar::addProgressBar2(int value2);
 	void CustomProgressiveBar::addProgressBar3(int value3);
@@ -20,9 +21,9 @@ public:
 
 private:
 	QString styleProgress = "margin-right:0; margin-left:0; border:0;";
-	QProgressBar *progress1 = new QProgressBar();
-	QProgressBar *progress2 = new QProgressBar();
-	QProgressBar *progress3 = new QProgressBar();
-	QProgressBar *progress4 = new QProgressBar();
+	QProgressBar *progress1;
+	QProgressBar *progress2;
+	QProgressBar *progress3;
+	QProgressBar *progress4;
 };
 

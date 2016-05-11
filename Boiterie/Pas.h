@@ -8,7 +8,7 @@ class Pas
 	
 
 private :
-	double  doubleAppuiRecep, phaseAppui, doubleAppuiProp, phaseOscil, doubleIdeal, phaseIdeal;
+	double   doubleIdeal, phaseIdeal;
 
 public:
 	Pas();

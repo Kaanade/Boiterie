@@ -11,6 +11,7 @@ using namespace std;
 
 class MonLayoutVertical : public QVBoxLayout{
 public:
+	MonLayoutVertical::MonLayoutVertical();
 	void MonLayoutVertical::addlabel(QString labelcontent);
 	void MonLayoutVertical::addlabel2(QString labelcontent);
 	void MonLayoutVertical::addlabel3(QString labelcontent);
@@ -32,7 +33,7 @@ private:
 	QPushButton *bouton = new QPushButton("Bouton");
 	QVBoxLayout *vbox2 = new QVBoxLayout;
 	QGroupBox *groupBox2 = new QGroupBox("Information du pas");
-	CustomProgressiveBar * ProgressTotal = new CustomProgressiveBar();
+	CustomProgressiveBar * ProgressTotal;
 
 };
 
